@@ -3,10 +3,13 @@ package guru.springframework.spring5mvcrest.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import guru.springframework.spring5mvcrest.api.v1.mapper.CategoryMapper;
 import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTO;
 import guru.springframework.spring5mvcrest.repositories.CategoryRepository;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     CategoryRepository categoryRepository;
