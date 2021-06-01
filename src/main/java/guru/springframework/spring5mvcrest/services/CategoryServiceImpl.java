@@ -31,4 +31,9 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryMapper.categoryToCategoryDTO(categoryRepository.findByName(name));
     }
 
+    @Override
+    public CategoryDTO findById(Long id) {
+        return categoryMapper.categoryToCategoryDTO(categoryRepository.findById(id).orElse(null));
+    }
+
 }

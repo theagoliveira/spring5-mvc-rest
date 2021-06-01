@@ -10,4 +10,6 @@ public interface CategoryService {
 
     CategoryDTO findByName(String name);
 
+    CategoryDTO findById(Long id);
+
 }
