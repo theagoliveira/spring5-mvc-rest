@@ -6,6 +6,6 @@ import guru.springframework.spring5mvcrest.domain.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-    Category findByName(String name);
+    Category findByNameIgnoreCase(String name);
 
 }
