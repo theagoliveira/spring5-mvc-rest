@@ -103,4 +103,28 @@ class CustomerServiceTest {
         assertEquals("/api/v1/customers/" + customer.getId(), returnCustomerDTO.getCustomerUrl());
     }
 
+    @Test
+    void testPut() {
+        // given
+        var customerDTO = new CustomerDTO();
+        customerDTO.setFirstName(FIRST_NAME);
+        customerDTO.setLastName(LAST_NAME);
+
+        var customer = new Customer();
+        customer.setId(ID);
+        customer.setFirstName(FIRST_NAME);
+        customer.setLastName(LAST_NAME);
+
+        when(customerRepository.save(any(Customer.class))).thenReturn(customer);
+
+        // when
+        CustomerDTO returnCustomerDTO = customerService.put(ID, customerDTO);
+
+        // then
+        assertEquals(ID, returnCustomerDTO.getId());
+        assertEquals(customerDTO.getFirstName(), returnCustomerDTO.getFirstName());
+        assertEquals(customerDTO.getLastName(), returnCustomerDTO.getLastName());
+        assertEquals("/api/v1/customers/" + ID, returnCustomerDTO.getCustomerUrl());
+    }
+
 }

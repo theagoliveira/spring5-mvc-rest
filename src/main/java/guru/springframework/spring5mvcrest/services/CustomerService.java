@@ -12,4 +12,6 @@ public interface CustomerService {
 
     CustomerDTO save(CustomerDTO customerDTO);
 
+    CustomerDTO put(Long id, CustomerDTO customerDTO);
+
 }

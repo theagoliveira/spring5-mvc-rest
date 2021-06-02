@@ -3,6 +3,7 @@ package guru.springframework.spring5mvcrest.controllers.v1;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,11 @@ public class CustomerController {
     @PostMapping
     public CustomerDTO create(@RequestBody CustomerDTO customerDTO) {
         return customerService.save(customerDTO);
+    }
+
+    @PutMapping("/{id}")
+    public CustomerDTO put(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+        return customerService.put(id, customerDTO);
     }
 
 }
