@@ -26,6 +26,7 @@ import guru.springframework.spring5mvcrest.services.CategoryService;
 
 class CategoryControllerTest {
 
+    private static final String CATEGORIES_URI = CategoryController.BASE_URI;
     private static final Long ID1 = 1L;
     private static final Long ID2 = 2L;
     private static final String NAME1 = "name1";
@@ -59,7 +60,7 @@ class CategoryControllerTest {
 
         when(categoryService.findAll()).thenReturn(categoryDTOs);
 
-        mockMvc.perform(get("/api/v1/categories").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get(CATEGORIES_URI).contentType(MediaType.APPLICATION_JSON))
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.categories", hasSize(2)));
     }
@@ -73,7 +74,7 @@ class CategoryControllerTest {
         when(categoryService.findByName(anyString())).thenReturn(categoryDTO1);
 
         mockMvc.perform(
-            get("/api/v1/categories/name/" + NAME1).contentType(MediaType.APPLICATION_JSON)
+            get(CATEGORIES_URI + "/name/" + NAME1).contentType(MediaType.APPLICATION_JSON)
         )
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
@@ -88,7 +89,7 @@ class CategoryControllerTest {
 
         when(categoryService.findById(anyLong())).thenReturn(categoryDTO1);
 
-        mockMvc.perform(get("/api/v1/categories/" + ID1).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get(CATEGORIES_URI + "/" + ID1).contentType(MediaType.APPLICATION_JSON))
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)));

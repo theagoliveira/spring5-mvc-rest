@@ -15,8 +15,10 @@ import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTOList;
 import guru.springframework.spring5mvcrest.services.CustomerService;
 
 @RestController
-@RequestMapping(value = "/api/v1/customers", produces = "application/json")
+@RequestMapping(value = CustomerController.BASE_URI, produces = "application/json")
 public class CustomerController {
+
+    public static final String BASE_URI = "/api/v1/customers";
 
     private final CustomerService customerService;
 

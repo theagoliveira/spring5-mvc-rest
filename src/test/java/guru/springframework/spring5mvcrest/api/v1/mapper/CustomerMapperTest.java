@@ -5,11 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
+import guru.springframework.spring5mvcrest.controllers.v1.CustomerController;
 import guru.springframework.spring5mvcrest.domain.Customer;
 
 class CustomerMapperTest {
 
-    private static final String CUSTOMERS_URI_SLASH = "/api/v1/customers/";
+    private static final String CUSTOMERS_URI_SLASH = CustomerController.BASE_URI + "/";
     private static final Long ID = 1L;
     private static final String FIRST_NAME = "firstName";
     private static final String LAST_NAME = "lastName";

@@ -32,8 +32,8 @@ import guru.springframework.spring5mvcrest.services.CustomerService;
 
 class CustomerControllerTest {
 
-    private static final String CUSTOMERS_URI = "/api/v1/customers";
-    private static final String CUSTOMERS_URI_SLASH = "/api/v1/customers/";
+    private static final String CUSTOMERS_URI = CustomerController.BASE_URI;
+    private static final String CUSTOMERS_URI_SLASH = CUSTOMERS_URI + "/";
     private static final Long ID1 = 1L;
     private static final Long ID2 = 2L;
     private static final String FIRST_NAME1 = "firstName1";
