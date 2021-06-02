@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -136,6 +137,15 @@ class CustomerServiceTest {
 
         // when
         assertThrows(RuntimeException.class, () -> customerService.patch(ID, customerDTO));
+    }
+
+    @Test
+    void testDelete() {
+        // when
+        customerService.delete(ID);
+
+        // then
+        verify(customerRepository).deleteById(anyLong());
     }
 
 }

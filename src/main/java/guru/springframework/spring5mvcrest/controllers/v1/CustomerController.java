@@ -1,5 +1,6 @@
 package guru.springframework.spring5mvcrest.controllers.v1;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +47,11 @@ public class CustomerController {
     @PatchMapping("/{id}")
     public CustomerDTO patch(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.patch(id, customerDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void destroy(@PathVariable Long id) {
+        customerService.delete(id);
     }
 
 }
