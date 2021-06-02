@@ -36,4 +36,11 @@ public class CustomerServiceImpl implements CustomerService {
         );
     }
 
+    @Override
+    public CustomerDTO save(CustomerDTO customerDTO) {
+        var customer = customerMapper.customerDTOToCustomer(customerDTO);
+        var savedCustomer = customerRepository.save(customer);
+        return customerMapper.customerToCustomerDTO(savedCustomer);
+    }
+
 }

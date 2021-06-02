@@ -2,6 +2,7 @@ package guru.springframework.spring5mvcrest.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
@@ -76,7 +77,30 @@ class CustomerServiceTest {
 
         // when
         assertThrows(RuntimeException.class, () -> customerService.findById(ID));
+    }
 
+    @Test
+    void testSave() {
+        // given
+        var customerDTO = new CustomerDTO();
+        customerDTO.setFirstName(FIRST_NAME);
+        customerDTO.setLastName(LAST_NAME);
+
+        var customer = new Customer();
+        customer.setId(ID);
+        customer.setFirstName(FIRST_NAME);
+        customer.setLastName(LAST_NAME);
+
+        when(customerRepository.save(any(Customer.class))).thenReturn(customer);
+
+        // when
+        CustomerDTO returnCustomerDTO = customerService.save(customerDTO);
+
+        // then
+        assertEquals(customer.getId(), returnCustomerDTO.getId());
+        assertEquals(customer.getFirstName(), returnCustomerDTO.getFirstName());
+        assertEquals(customer.getLastName(), returnCustomerDTO.getLastName());
+        assertEquals("/api/v1/customers/" + customer.getId(), returnCustomerDTO.getCustomerUrl());
     }
 
 }
