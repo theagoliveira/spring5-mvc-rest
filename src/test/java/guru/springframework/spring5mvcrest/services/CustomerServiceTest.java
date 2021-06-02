@@ -22,6 +22,7 @@ import guru.springframework.spring5mvcrest.repositories.CustomerRepository;
 
 class CustomerServiceTest {
 
+    private static final String CUSTOMERS_URI_SLASH = "/api/v1/customers/";
     private static final Long ID = 1L;
     private static final String FIRST_NAME = "firstName";
     private static final String LAST_NAME = "lastName";
@@ -67,7 +68,7 @@ class CustomerServiceTest {
         assertEquals(customer.getId(), customerDTO.getId());
         assertEquals(customer.getFirstName(), customerDTO.getFirstName());
         assertEquals(customer.getLastName(), customerDTO.getLastName());
-        assertEquals("/api/v1/customers/" + customer.getId(), customerDTO.getCustomerUrl());
+        assertEquals(CUSTOMERS_URI_SLASH + customer.getId(), customerDTO.getCustomerUrl());
     }
 
     @Test
@@ -100,7 +101,7 @@ class CustomerServiceTest {
         assertEquals(customer.getId(), returnCustomerDTO.getId());
         assertEquals(customer.getFirstName(), returnCustomerDTO.getFirstName());
         assertEquals(customer.getLastName(), returnCustomerDTO.getLastName());
-        assertEquals("/api/v1/customers/" + customer.getId(), returnCustomerDTO.getCustomerUrl());
+        assertEquals(CUSTOMERS_URI_SLASH + customer.getId(), returnCustomerDTO.getCustomerUrl());
     }
 
     @Test
@@ -124,7 +125,17 @@ class CustomerServiceTest {
         assertEquals(ID, returnCustomerDTO.getId());
         assertEquals(customerDTO.getFirstName(), returnCustomerDTO.getFirstName());
         assertEquals(customerDTO.getLastName(), returnCustomerDTO.getLastName());
-        assertEquals("/api/v1/customers/" + ID, returnCustomerDTO.getCustomerUrl());
+        assertEquals(CUSTOMERS_URI_SLASH + ID, returnCustomerDTO.getCustomerUrl());
+    }
+
+    @Test
+    void testPatchNotFound() {
+        // given
+        when(customerRepository.findById(anyLong())).thenReturn(Optional.empty());
+        CustomerDTO customerDTO = new CustomerDTO();
+
+        // when
+        assertThrows(RuntimeException.class, () -> customerService.patch(ID, customerDTO));
     }
 
 }

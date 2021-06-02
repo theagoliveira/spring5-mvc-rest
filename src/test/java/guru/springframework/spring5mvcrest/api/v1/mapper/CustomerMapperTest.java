@@ -9,6 +9,7 @@ import guru.springframework.spring5mvcrest.domain.Customer;
 
 class CustomerMapperTest {
 
+    private static final String CUSTOMERS_URI_SLASH = "/api/v1/customers/";
     private static final Long ID = 1L;
     private static final String FIRST_NAME = "firstName";
     private static final String LAST_NAME = "lastName";
@@ -30,7 +31,7 @@ class CustomerMapperTest {
         assertEquals(ID, customerDTO.getId());
         assertEquals(FIRST_NAME, customerDTO.getFirstName());
         assertEquals(LAST_NAME, customerDTO.getLastName());
-        assertEquals("/api/v1/customers/" + ID, customerDTO.getCustomerUrl());
+        assertEquals(CUSTOMERS_URI_SLASH + ID, customerDTO.getCustomerUrl());
     }
 
     @Test
@@ -40,7 +41,7 @@ class CustomerMapperTest {
         customerDTO.setId(ID);
         customerDTO.setFirstName(FIRST_NAME);
         customerDTO.setLastName(LAST_NAME);
-        customerDTO.setCustomerUrl("/api/v1/customers/" + ID);
+        customerDTO.setCustomerUrl(CUSTOMERS_URI_SLASH + ID);
 
         // when
         Customer customer = customerMapper.customerDTOToCustomer(customerDTO);

@@ -1,6 +1,7 @@
 package guru.springframework.spring5mvcrest.controllers.v1;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,6 +41,11 @@ public class CustomerController {
     @PutMapping("/{id}")
     public CustomerDTO put(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.put(id, customerDTO);
+    }
+
+    @PatchMapping("/{id}")
+    public CustomerDTO patch(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+        return customerService.patch(id, customerDTO);
     }
 
 }
