@@ -13,7 +13,7 @@ import guru.springframework.spring5mvcrest.services.CategoryService;
 @RequestMapping(value = "/api/v1/categories", produces = "application/json")
 public class CategoryController {
 
-    CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;

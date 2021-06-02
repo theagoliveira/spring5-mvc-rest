@@ -45,7 +45,6 @@ class CategoryServiceTest {
 
         // then
         assertEquals(categories.size(), categoryDTOs.size());
-
     }
 
     @Test

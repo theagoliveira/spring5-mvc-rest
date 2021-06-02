@@ -13,5 +13,6 @@
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
     "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*",
     "org.hamcrest.Matchers.*"
-  ]
+  ],
+  "java.dependency.packagePresentation": "flat"
 }
