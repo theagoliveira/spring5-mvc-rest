@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import guru.springframework.spring5mvcrest.api.v1.mapper.CustomerMapper;
 import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
+import guru.springframework.spring5mvcrest.domain.Customer;
 import guru.springframework.spring5mvcrest.repositories.CustomerRepository;
 
 @Service
@@ -47,6 +48,19 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO put(Long id, CustomerDTO customerDTO) {
         customerDTO.setId(id);
         return save(customerDTO);
+    }
+
+    @Override
+    public CustomerDTO patch(Long id, CustomerDTO customerDTO) {
+        Customer customer = customerRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        if (customerDTO.getFirstName() == null)
+            customerDTO.setFirstName(customer.getFirstName());
+
+        if (customerDTO.getLastName() == null)
+            customerDTO.setLastName(customer.getLastName());
+
+        return put(id, customerDTO);
     }
 
 }

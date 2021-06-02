@@ -14,4 +14,6 @@ public interface CustomerService {
 
     CustomerDTO put(Long id, CustomerDTO customerDTO);
 
+    CustomerDTO patch(Long id, CustomerDTO customerDTO);
+
 }
