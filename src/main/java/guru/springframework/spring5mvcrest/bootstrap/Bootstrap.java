@@ -5,8 +5,10 @@ import org.springframework.stereotype.Component;
 
 import guru.springframework.spring5mvcrest.domain.Category;
 import guru.springframework.spring5mvcrest.domain.Customer;
+import guru.springframework.spring5mvcrest.domain.Vendor;
 import guru.springframework.spring5mvcrest.repositories.CategoryRepository;
 import guru.springframework.spring5mvcrest.repositories.CustomerRepository;
+import guru.springframework.spring5mvcrest.repositories.VendorRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,16 +17,20 @@ public class Bootstrap implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;
+    private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository) {
+    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository,
+                     VendorRepository vendorRepository) {
         this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
+        this.vendorRepository = vendorRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         loadCategories();
         loadCustomers();
+        loadVendors();
     }
 
     private void loadCategories() {
@@ -73,6 +79,18 @@ public class Bootstrap implements CommandLineRunner {
         customerRepository.save(customer4);
 
         log.info(customerRepository.count() + " customers loaded.");
+    }
+
+    private void loadVendors() {
+        var vendor1 = new Vendor();
+        vendor1.setName("Fun Fresh Fruits Ltd.");
+        vendorRepository.save(vendor1);
+
+        var vendor2 = new Vendor();
+        vendor2.setName("Nuts for Nuts Company");
+        vendorRepository.save(vendor2);
+
+        log.info(vendorRepository.count() + " vendors loaded.");
     }
 
 }

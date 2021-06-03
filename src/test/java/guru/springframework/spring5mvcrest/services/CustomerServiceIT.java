@@ -15,6 +15,7 @@ import guru.springframework.spring5mvcrest.bootstrap.Bootstrap;
 import guru.springframework.spring5mvcrest.domain.Customer;
 import guru.springframework.spring5mvcrest.repositories.CategoryRepository;
 import guru.springframework.spring5mvcrest.repositories.CustomerRepository;
+import guru.springframework.spring5mvcrest.repositories.VendorRepository;
 
 @DataJpaTest
 class CustomerServiceIT {
@@ -23,10 +24,13 @@ class CustomerServiceIT {
     private static final String NEW_LAST_NAME = "newLastName";
 
     @Autowired
+    CategoryRepository categoryRepository;
+
+    @Autowired
     CustomerRepository customerRepository;
 
     @Autowired
-    CategoryRepository categoryRepository;
+    VendorRepository vendorRepository;
 
     CustomerService customerService;
 
@@ -38,7 +42,7 @@ class CustomerServiceIT {
         categoryRepository.deleteAll();
         customerRepository.deleteAll();
 
-        bootstrap = new Bootstrap(categoryRepository, customerRepository);
+        bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository);
         bootstrap.run();
 
         id = customerRepository.findAll().get(0).getId();
