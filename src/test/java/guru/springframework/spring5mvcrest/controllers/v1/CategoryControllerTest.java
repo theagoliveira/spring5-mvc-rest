@@ -22,7 +22,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTO;
+import guru.springframework.spring5mvcrest.controllers.RestResponseEntityExceptionHandler;
 import guru.springframework.spring5mvcrest.services.CategoryService;
+import guru.springframework.spring5mvcrest.services.ResourceNotFoundException;
 
 class CategoryControllerTest {
 
@@ -43,7 +45,9 @@ class CategoryControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(categoryController)
+                                 .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                                 .build();
     }
 
     @Test
@@ -82,6 +86,15 @@ class CategoryControllerTest {
     }
 
     @Test
+    void testShowByNameNotFound() throws Exception {
+        when(categoryService.findByName(anyString())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(
+            get(CATEGORIES_URI + "/name/" + "NAME1").contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(status().isNotFound());
+    }
+
+    @Test
     void testShowById() throws Exception {
         CategoryDTO categoryDTO1 = new CategoryDTO();
         categoryDTO1.setId(ID1);
@@ -93,6 +106,14 @@ class CategoryControllerTest {
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)));
+    }
+
+    @Test
+    void testShowByIdNotFound() throws Exception {
+        when(categoryService.findById(anyLong())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CATEGORIES_URI + "/" + "999").contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().isNotFound());
     }
 
 }

@@ -1,11 +1,14 @@
 package guru.springframework.spring5mvcrest.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,6 +64,31 @@ class CategoryServiceTest {
         // then
         assertEquals(category.getId(), categoryDTO.getId());
         assertEquals(category.getName(), categoryDTO.getName());
+    }
+
+    @Test
+    void testFindById() {
+        // given
+        var category = new Category();
+        category.setId(ID);
+        category.setName(NAME);
+        when(categoryRepository.findById(anyLong())).thenReturn(Optional.of(category));
+
+        // when
+        CategoryDTO categoryDTO = categoryService.findById(ID);
+
+        // then
+        assertEquals(category.getId(), categoryDTO.getId());
+        assertEquals(category.getName(), categoryDTO.getName());
+    }
+
+    @Test
+    void testFindByIdNotFound() {
+        // given
+        when(categoryRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        // when
+        assertThrows(ResourceNotFoundException.class, () -> categoryService.findById(ID));
     }
 
 }

@@ -28,7 +28,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
+import guru.springframework.spring5mvcrest.controllers.RestResponseEntityExceptionHandler;
 import guru.springframework.spring5mvcrest.services.CustomerService;
+import guru.springframework.spring5mvcrest.services.ResourceNotFoundException;
 
 class CustomerControllerTest {
 
@@ -52,7 +54,9 @@ class CustomerControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(customerController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(customerController)
+                                 .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                                 .build();
     }
 
     @Test
@@ -94,6 +98,14 @@ class CustomerControllerTest {
                .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
                .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
                .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+    }
+
+    @Test
+    void testShowNotFound() throws Exception {
+        when(customerService.findById(anyLong())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CUSTOMERS_URI_SLASH + "999").contentType(MediaType.APPLICATION_JSON))
+               .andExpect(status().isNotFound());
     }
 
     @Test
@@ -168,6 +180,21 @@ class CustomerControllerTest {
                .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
                .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
                .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+    }
+
+    @Test
+    void testPatchNotFound() throws Exception {
+        CustomerDTO customerDTO1 = new CustomerDTO();
+        customerDTO1.setFirstName(FIRST_NAME1);
+
+        when(customerService.patch(anyLong(), any(CustomerDTO.class))).thenThrow(
+            ResourceNotFoundException.class
+        );
+
+        mockMvc.perform(
+            patch(CUSTOMERS_URI_SLASH + "999").contentType(MediaType.APPLICATION_JSON)
+                                              .content(asJsonString(customerDTO1))
+        ).andExpect(status().isNotFound());
     }
 
     @Test

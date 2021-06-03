@@ -79,7 +79,7 @@ class CustomerServiceTest {
         when(customerRepository.findById(anyLong())).thenReturn(Optional.empty());
 
         // when
-        assertThrows(RuntimeException.class, () -> customerService.findById(ID));
+        assertThrows(ResourceNotFoundException.class, () -> customerService.findById(ID));
     }
 
     @Test
@@ -137,7 +137,7 @@ class CustomerServiceTest {
         CustomerDTO customerDTO = new CustomerDTO();
 
         // when
-        assertThrows(RuntimeException.class, () -> customerService.patch(ID, customerDTO));
+        assertThrows(ResourceNotFoundException.class, () -> customerService.patch(ID, customerDTO));
     }
 
     @Test

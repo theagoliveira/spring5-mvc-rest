@@ -36,7 +36,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDTO findById(Long id) {
-        return categoryMapper.categoryToCategoryDTO(categoryRepository.findById(id).orElse(null));
+        return categoryMapper.categoryToCategoryDTO(
+            categoryRepository.findById(id).orElseThrow(ResourceNotFoundException::new)
+        );
     }
 
 }
