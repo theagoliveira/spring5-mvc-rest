@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
 import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTOList;
 import guru.springframework.spring5mvcrest.services.CustomerService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value = CustomerController.BASE_URI, produces = "application/json")
@@ -28,6 +29,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "This will get a list of all customers.", notes = "Notes about the API.")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerDTOList index() {

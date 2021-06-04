@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
 import guru.springframework.spring5mvcrest.api.v1.model.VendorDTOList;
 import guru.springframework.spring5mvcrest.services.VendorService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value = VendorController.BASE_URI, produces = "application/json")
@@ -28,36 +29,42 @@ public class VendorController {
         this.vendorService = vendorService;
     }
 
+    @ApiOperation(value = "Get a list of all vendors.")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public VendorDTOList index() {
         return new VendorDTOList(vendorService.findAll());
     }
 
+    @ApiOperation(value = "Get information about a particular vendor.")
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public VendorDTO show(@PathVariable Long id) {
         return vendorService.findById(id);
     }
 
+    @ApiOperation(value = "Create a new vendor.")
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public VendorDTO create(@RequestBody VendorDTO vendorDTO) {
         return vendorService.save(vendorDTO);
     }
 
+    @ApiOperation(value = "Update an existing vendor or create a new one, based on the ID.", notes = "If the ID does not exist in the database, a new vendor with the next available ID will be created. ")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public VendorDTO put(@PathVariable Long id, @RequestBody VendorDTO vendorDTO) {
         return vendorService.put(id, vendorDTO);
     }
 
+    @ApiOperation(value = "Update an existing vendor.")
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public VendorDTO patch(@PathVariable Long id, @RequestBody VendorDTO vendorDTO) {
         return vendorService.patch(id, vendorDTO);
     }
 
+    @ApiOperation(value = "Delete a vendor.")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void destroy(@PathVariable Long id) {
