@@ -18,7 +18,8 @@ import guru.springframework.spring5mvcrest.services.VendorService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value = VendorController.BASE_URI, produces = "application/json")
+@RequestMapping(value = VendorController.BASE_URI, produces = {
+        "application/json", "application/xml"})
 public class VendorController {
 
     public static final String BASE_URI = "/api/v1/vendors";

@@ -12,7 +12,8 @@ import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTOList;
 import guru.springframework.spring5mvcrest.services.CategoryService;
 
 @RestController
-@RequestMapping(value = CategoryController.BASE_URI, produces = "application/json")
+@RequestMapping(value = CategoryController.BASE_URI, produces = {
+        "application/json", "application/xml"})
 public class CategoryController {
 
     public static final String BASE_URI = "/api/v1/categories";

@@ -18,7 +18,8 @@ import guru.springframework.spring5mvcrest.services.CustomerService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value = CustomerController.BASE_URI, produces = "application/json")
+@RequestMapping(value = CustomerController.BASE_URI, produces = {
+        "application/json", "application/xml"})
 public class CustomerController {
 
     public static final String BASE_URI = "/api/v1/customers";
