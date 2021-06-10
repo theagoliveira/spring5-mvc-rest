@@ -17,7 +17,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import guru.springframework.spring5mvcrest.api.v1.mapper.VendorMapper;
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
+import guru.springframework.model.VendorDTO;
 import guru.springframework.spring5mvcrest.controllers.v1.VendorController;
 import guru.springframework.spring5mvcrest.domain.Vendor;
 import guru.springframework.spring5mvcrest.repositories.VendorRepository;

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTO;
-import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTOList;
+import guru.springframework.model.CategoryDTO;
+import guru.springframework.model.CategoryDTOList;
 import guru.springframework.spring5mvcrest.services.CategoryService;
 
 @RestController
@@ -27,7 +27,9 @@ public class CategoryController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CategoryDTOList index() {
-        return new CategoryDTOList(categoryService.findAll());
+        var categoryDTOList = new CategoryDTOList();
+        categoryDTOList.getCategories().addAll(categoryService.findAll());
+        return categoryDTOList;
     }
 
     @GetMapping("/name/{name}")

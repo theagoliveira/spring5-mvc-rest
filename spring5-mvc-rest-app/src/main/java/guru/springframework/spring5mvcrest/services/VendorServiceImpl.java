@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.spring5mvcrest.api.v1.mapper.VendorMapper;
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
+import guru.springframework.model.VendorDTO;
 import guru.springframework.spring5mvcrest.domain.Vendor;
 import guru.springframework.spring5mvcrest.repositories.VendorRepository;
 

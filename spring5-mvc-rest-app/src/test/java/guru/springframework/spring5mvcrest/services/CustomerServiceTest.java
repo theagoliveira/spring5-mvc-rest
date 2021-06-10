@@ -17,7 +17,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import guru.springframework.spring5mvcrest.api.v1.mapper.CustomerMapper;
-import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
+import guru.springframework.model.CustomerDTO;
 import guru.springframework.spring5mvcrest.controllers.v1.CustomerController;
 import guru.springframework.spring5mvcrest.domain.Customer;
 import guru.springframework.spring5mvcrest.repositories.CustomerRepository;

@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
+import guru.springframework.model.VendorDTO;
 import guru.springframework.spring5mvcrest.controllers.v1.VendorController;
 import guru.springframework.spring5mvcrest.domain.Vendor;
 

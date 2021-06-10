@@ -2,7 +2,7 @@ package guru.springframework.spring5mvcrest.services;
 
 import java.util.List;
 
-import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
+import guru.springframework.model.CustomerDTO;
 
 public interface CustomerService {
 

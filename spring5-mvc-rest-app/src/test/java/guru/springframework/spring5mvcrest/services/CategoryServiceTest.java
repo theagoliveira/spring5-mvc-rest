@@ -16,7 +16,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import guru.springframework.spring5mvcrest.api.v1.mapper.CategoryMapper;
-import guru.springframework.spring5mvcrest.api.v1.model.CategoryDTO;
+import guru.springframework.model.CategoryDTO;
 import guru.springframework.spring5mvcrest.domain.Category;
 import guru.springframework.spring5mvcrest.repositories.CategoryRepository;
 

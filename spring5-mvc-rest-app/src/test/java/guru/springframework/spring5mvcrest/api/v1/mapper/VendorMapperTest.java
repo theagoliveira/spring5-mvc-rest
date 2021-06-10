@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
+import guru.springframework.model.VendorDTO;
 import guru.springframework.spring5mvcrest.controllers.v1.VendorController;
 import guru.springframework.spring5mvcrest.domain.Vendor;
 

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTO;
-import guru.springframework.spring5mvcrest.api.v1.model.VendorDTOList;
+import guru.springframework.model.VendorDTO;
+import guru.springframework.model.VendorDTOList;
 import guru.springframework.spring5mvcrest.services.VendorService;
 import io.swagger.annotations.ApiOperation;
 
@@ -34,7 +34,9 @@ public class VendorController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public VendorDTOList index() {
-        return new VendorDTOList(vendorService.findAll());
+        var vendorDTOList = new VendorDTOList();
+        vendorDTOList.getVendors().addAll(vendorService.findAll());
+        return vendorDTOList;
     }
 
     @ApiOperation(value = "Get information about a particular vendor.")

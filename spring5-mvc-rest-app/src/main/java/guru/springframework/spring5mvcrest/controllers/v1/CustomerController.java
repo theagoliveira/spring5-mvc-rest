@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTO;
-import guru.springframework.spring5mvcrest.api.v1.model.CustomerDTOList;
+import guru.springframework.model.CustomerDTO;
+import guru.springframework.model.CustomerDTOList;
 import guru.springframework.spring5mvcrest.services.CustomerService;
 import io.swagger.annotations.ApiOperation;
 
@@ -34,7 +34,9 @@ public class CustomerController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerDTOList index() {
-        return new CustomerDTOList(customerService.findAll());
+        var customerDTOList = new CustomerDTOList();
+        customerDTOList.getCustomers().addAll(customerService.findAll());
+        return customerDTOList;
     }
 
     @GetMapping("/{id}")
