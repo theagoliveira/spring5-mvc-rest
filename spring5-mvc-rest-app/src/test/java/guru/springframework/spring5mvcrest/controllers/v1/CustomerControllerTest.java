@@ -95,9 +95,9 @@ class CustomerControllerTest {
         mockMvc.perform(get(CUSTOMERS_URI_SLASH + ID1).contentType(MediaType.APPLICATION_JSON))
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
-               .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
-               .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
-               .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME1)))
+               .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME1)))
+               .andExpect(jsonPath("$.customerUrl", equalTo(CUSTOMERS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -128,9 +128,9 @@ class CustomerControllerTest {
         )
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
-               .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
-               .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
-               .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME1)))
+               .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME1)))
+               .andExpect(jsonPath("$.customerUrl", equalTo(CUSTOMERS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -153,9 +153,9 @@ class CustomerControllerTest {
         )
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
-               .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
-               .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
-               .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME1)))
+               .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME1)))
+               .andExpect(jsonPath("$.customerUrl", equalTo(CUSTOMERS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -177,9 +177,9 @@ class CustomerControllerTest {
         )
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
-               .andExpect(jsonPath("$.first_name", equalTo(FIRST_NAME1)))
-               .andExpect(jsonPath("$.last_name", equalTo(LAST_NAME1)))
-               .andExpect(jsonPath("$.customer_url", equalTo(CUSTOMERS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME1)))
+               .andExpect(jsonPath("$.lastName", equalTo(LAST_NAME1)))
+               .andExpect(jsonPath("$.customerUrl", equalTo(CUSTOMERS_URI_SLASH + ID1)));
     }
 
     @Test

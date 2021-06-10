@@ -91,7 +91,7 @@ class VendorControllerTest {
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)))
-               .andExpect(jsonPath("$.vendor_url", equalTo(VENDORS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.vendorUrl", equalTo(VENDORS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -121,7 +121,7 @@ class VendorControllerTest {
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)))
-               .andExpect(jsonPath("$.vendor_url", equalTo(VENDORS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.vendorUrl", equalTo(VENDORS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -143,7 +143,7 @@ class VendorControllerTest {
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)))
-               .andExpect(jsonPath("$.vendor_url", equalTo(VENDORS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.vendorUrl", equalTo(VENDORS_URI_SLASH + ID1)));
     }
 
     @Test
@@ -165,7 +165,7 @@ class VendorControllerTest {
                .andExpect(status().isOk())
                .andExpect(jsonPath("$.id", equalTo(ID1.intValue())))
                .andExpect(jsonPath("$.name", equalTo(NAME1)))
-               .andExpect(jsonPath("$.vendor_url", equalTo(VENDORS_URI_SLASH + ID1)));
+               .andExpect(jsonPath("$.vendorUrl", equalTo(VENDORS_URI_SLASH + ID1)));
     }
 
     @Test
