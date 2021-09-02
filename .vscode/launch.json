@@ -2,12 +2,12 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Spring Boot-Spring5MvcRestApplication<spring5-mvc-rest>",
+      "name": "Spring Boot-Spring5MvcRestApplication<spring5-mvc-rest-app>",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "console": "internalConsole",
       "mainClass": "guru.springframework.spring5mvcrest.Spring5MvcRestApplication",
-      "projectName": "spring5-mvc-rest",
+      "projectName": "spring5-mvc-rest-app",
       "args": ""
     }
   ]
