@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "972813b0-c608-4f8e-8536-c2d6e1159c46",
+		"name": "Spring Framework Guru: spring5-mvc-rest (Heroku)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/categories",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fruits Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/categories/name/fruits",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"name",
+						"fruits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stonks Category (Error)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/categories/name/stonks",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"name",
+						"stonks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category with ID 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/categories/2",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Customers",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer with ID 3333 (Error)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/3333",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"3333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer with ID 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/3",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Vendors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor with ID 3333 (Error)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/3333",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"3333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor with ID 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/2",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Thiago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Thiago\",\n    \"lastName\": \"Cavalcante\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Loja",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Loja\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Thiago (Update)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Thiago\",\n    \"lastName\": \"Santos\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/5",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer João (Create)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"João\",\n    \"lastName\": \"Silva\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/99",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer João (Update)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"João\",\n    \"lastName\": \"Santos\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/6",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Loja (Update)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lojinha\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/3",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Mercadinho (Create)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Mercadinho\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/99",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Mercadinho (Update)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Mercadão\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/4",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Thiago First Name",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Tico\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/5",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Thiago Last Name",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastName\": \"Cavalcante\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/5",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Loja Name",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lojona\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/3",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-existing Customer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Unknown\",\n    \"lastName\": \"Customer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/999",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-existing Vendor",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Unknown\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/999",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Thiago",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/customers/5",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Loja",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pacific-basin-46236.herokuapp.com/api/v1/vendors/3",
+					"protocol": "https",
+					"host": [
+						"pacific-basin-46236",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"vendors",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
