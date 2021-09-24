@@ -132,7 +132,7 @@
           <compilerArgs>
             <compilerArg>
               -Amapstruct.defaultComponentModel=spring
-            </compilerArg>
+</compilerArg>
           </compilerArgs>
         </configuration>
       </plugin>
@@ -185,17 +185,6 @@
           <systemPropertyVariables>
             <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
           </systemPropertyVariables>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.heroku.sdk</groupId>
-        <artifactId>heroku-maven-plugin</artifactId>
-        <version>3.0.3</version>
-        <configuration>
-          <processTypes>
-            <web>java -Dserver.port=$PORT $JAVA_OPTS -cp target/classes:target/dependency/* guru.springframework.spring5mvcrest Spring5MvcRestApplication</web>
-          </processTypes>
-          <jdkVersion>11</jdkVersion>
         </configuration>
       </plugin>
     </plugins>
